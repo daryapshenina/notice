@@ -1,0 +1,37 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:ws.query.specialtransport" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="urn:ws.query.specialtransport">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="urn:ws.query.specialtransport" schemaLocation="SpecialTransportDataQueryService.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="querySpecialTransportDataRequest">
+        <wsdl:part element="tns:querySpecialTransportDataRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="querySpecialTransportDataResponse">
+        <wsdl:part element="tns:querySpecialTransportDataResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="SpecialTransportDataQueryService">
+        <wsdl:operation name="querySpecialTransportData">
+            <wsdl:input message="tns:querySpecialTransportDataRequest"/>
+            <wsdl:output message="tns:querySpecialTransportDataResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SpecialTransportDataQueryServiceSOAP" type="tns:SpecialTransportDataQueryService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="querySpecialTransportData">
+            <soap:operation soapAction="urn:querySpecialTransportDataAction"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SpecialTransport">
+        <wsdl:documentation>Сервис запроса данных по принадлежности транспортных средств к спецтранспорту.</wsdl:documentation>
+        <wsdl:port binding="tns:SpecialTransportDataQueryServiceSOAP" name="SpecialTransportDataQueryServiceSOAP">
+            <soap:address location="http://172.29.23.201/debugutils/default/specialTransport"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

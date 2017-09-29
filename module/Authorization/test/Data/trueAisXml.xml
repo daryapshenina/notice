@@ -1,0 +1,105 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <Response xmlns="urn:oasis:names:tc:SAML:1.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:1.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:1.0:protocol" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IssueInstant="2017-06-22T10:26:50.773Z" MajorVersion="1" MinorVersion="1" Recipient="http://10.11.32.115:1717" ResponseID="_5098aa629462134ca2f2a239eb9b18dc">
+            <Status>
+                <StatusCode Value="samlp:Success"/>
+            </Status>
+            <Assertion xmlns="urn:oasis:names:tc:SAML:1.0:assertion" AssertionID="_75a1667ce699b89f5ccce339c8d7f788" IssueInstant="2017-06-22T10:26:50.773Z" Issuer="https://security.gibdd.local:8282/cds/webapp/departments" MajorVersion="1" MinorVersion="1">
+                <Conditions NotBefore="2017-06-22T10:26:50.773Z" NotOnOrAfter="2017-06-22T10:27:20.773Z">
+                    <AudienceRestrictionCondition>
+                        <Audience>http://10.11.32.115:1717</Audience>
+                    </AudienceRestrictionCondition>
+                </Conditions>
+                <AuthenticationStatement AuthenticationInstant="2017-06-22T10:26:50.773Z" AuthenticationMethod="urn:oasis:names:tc:SAML:1.0:am:unspecified">
+                    <Subject>
+                        <NameIdentifier>testqa6</NameIdentifier>
+                        <SubjectConfirmation>
+                            <ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:artifact</ConfirmationMethod>
+                        </SubjectConfirmation>
+                    </Subject>
+                </AuthenticationStatement>
+                <AttributeStatement>
+                    <Subject>
+                        <NameIdentifier>testqa6</NameIdentifier>
+                        <SubjectConfirmation>
+                            <ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:artifact</ConfirmationMethod>
+                        </SubjectConfirmation>
+                    </Subject>
+                    <Attribute AttributeName="AccountExpiresDays" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">1015</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="PasswordExpiresDays" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">-1</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="EmployeeId" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">460</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="AccountId" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">testqa6</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="EmployeeDisplayName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">Иванов Иван Иванович</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="PersonFirstName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">Иван</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="PersonLastName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">Иванов</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="PersonMiddleName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">Иванович</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="PersonRankId" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">45151031</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="PersonRankName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">генерал-полковник полиции</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="EmployeePositionId" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">39488741</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="EmployeePositionName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">государственный инспектор</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="EmployeeNumber" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">АП-3198</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="EmployeeBadgeNumber" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">666666</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="DepartmentId" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">37992471</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="DepartmentExtId" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">37992471</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="DepartmentCode" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">45650</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="DepartmentName" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">ОБ по ЮАО</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="ChangeDepartmentUrl" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">https://security.gibdd.local:8282/cds/webapp/departments?ignoreRememberedDepartment=true&amp;app=http://10.11.32.115:1717</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="ChangePasswordUrl" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">https://security.gibdd.local:8282/security-changepwd-web/webapp</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="LogoutUrl" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">https://security.gibdd.local:8282/cas/logout</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="ApplicationLogoutUrl" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">https://security.gibdd.local:8282/cas/logout?url=http://10.11.32.115:1717</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="Roles" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">ROLE_SUDIS_MI_ACCESS</AttributeValue>
+                    </Attribute>
+                    <Attribute AttributeName="Permissions" AttributeNamespace="urn:security:authorization:1.0">
+                        <AttributeValue xsi:type="xsd:string">application:access:*</AttributeValue>
+                    </Attribute>
+                </AttributeStatement>
+            </Assertion>
+        </Response>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

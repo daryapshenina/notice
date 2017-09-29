@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="ZendSkeletonApplication Test Suite">
+            <directory>./module/Application/test</directory>
+        </testsuite>
+
+        <testsuite name="Authorization">
+            <directory>./module/Authorization/test</directory>
+        </testsuite>
+
+        <testsuite name="CryptModel">
+            <directory>./module/Authorization/test/Model/CryptModelTest.php</directory>
+        </testsuite>
+        
+        <testsuite name="UserOrmModel">
+            <directory>./module/Authorization/test/Entity/UserModelTest.php</directory>
+        </testsuite>
+        <testsuite name="PostgreUserDataStorageModel">
+            <directory>./module/Authorization/test/Model/PostgreUserDataStorageTest.php</directory>
+        </testsuite>
+        <testsuite name="AisModel">
+            <directory>./module/Authorization/test/Model/AisModelTest.php</directory>
+        </testsuite>
+        <testsuite name="Token">
+            <directory>./module/Authorization/test/Model/TokenTest.php</directory>
+        </testsuite>
+        <testsuite name="UserDataTest">
+            <directory>./module/Authorization/test/Model/UserDataTest.php</directory>
+        </testsuite>
+        <testsuite name="FluentModel">
+            <directory>./module/Logging/test/Model/FluentModelTest.php</directory>
+        </testsuite>
+        <testsuite name="FactoryStorage">
+            <directory>./module/Authorization/test/Extension/FactoryStorageTest.php</directory>
+        </testsuite>
+        <testsuite name="Logger">
+            <directory>./module/Logging/test/Controller/LoggingControllerTest.php</directory>
+        </testsuite>
+        <testsuite name="HttpWrapper">
+            <directory>./mobileinspector-core/basic/test/HttpClientTest.php</directory>
+        </testsuite>
+        <testsuite name="JsonClientResponseTest">
+            <directory>./mobileinspector-core/basic/test/JsonClientResponseTest.php</directory>
+        </testsuite>
+        <testsuite name="Search">
+            <directory>./module/Search/test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

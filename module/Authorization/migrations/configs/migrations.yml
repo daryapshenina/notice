@@ -1,0 +1,4 @@
+name: Doctrine Migrations
+migrations_namespace: Migrations # namespace of the migration classes
+#table_name: public.user # table name to use for version records
+migrations_directory: ../versions # directory to create migration files/classes in

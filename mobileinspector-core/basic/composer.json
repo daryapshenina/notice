@@ -1,0 +1,13 @@
+{
+    "name": "mobileinspector-core/basic",
+    "description": "basic mi",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Mobileinspector\\Basic\\": "src"
+        }
+    },
+    "require": {}
+}

@@ -1,0 +1,104 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:ws.query.specialtransport" targetNamespace="urn:ws.query.specialtransport">
+    <xsd:element name="querySpecialTransportDataRequest" type="tns:SpecialTransportQueryDataRequest">
+    </xsd:element>
+    <xsd:element name="querySpecialTransportDataResponse" type="tns:SpecialTransportQueryDataResponse">
+    </xsd:element>
+    <xsd:complexType name="SpecialTransportQueryDataRequest">
+        <xsd:annotation>
+            <xsd:documentation>Запрос данных по принадлежности ТС с спецтранспорту.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element type="tns:RequestRecords" name="records"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="RequestRecords">
+        <xsd:annotation>
+            <xsd:documentation>Массив записей запроса по спецтранспорту.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element type="tns:RequestRecord" maxOccurs="unbounded" name="rec"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="RecordId">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="20"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="LicencePlateNum">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="10"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="RequestRecord">
+        <xsd:sequence>
+            <xsd:element type="tns:RecordId" name="id">
+                <xsd:annotation>
+                    <xsd:documentation>Уникальный ID фиксации (как минимум в рамках одного запроса).</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element type="xsd:dateTime" name="fixDate">
+                <xsd:annotation>
+                    <xsd:documentation>Дата фиксации.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element type="tns:LicencePlateNum" name="licPlateNum">
+                <xsd:annotation>
+                    <xsd:documentation>Государственный регистрационный номер транспортного средства.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SpecialTransportQueryDataResponse">
+        <xsd:annotation>
+            <xsd:documentation>Синхронный ответ на запрос.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="reqStatus" type="xsd:int" nillable="false">
+                <xsd:annotation>
+                    <xsd:documentation>Код статуса получения запроса (1-Ок, ошибки в отрицательной полуплоскости)
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="reqStatusComment" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Комментарий к статусу получения запроса</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="recCountSent" type="xsd:int" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Количество отправленны строк</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element type="tns:ResponseRecords" name="records"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResponseRecords">
+        <xsd:sequence>
+            <xsd:element type="tns:ResponseRecord" minOccurs="0" maxOccurs="unbounded" name="rec"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResponseRecord">
+        <xsd:annotation>
+            <xsd:documentation>Ответ будет сформирован только в том случае, елси в системе есть информация по транспортному средству.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element type="xsd:normalizedString" name="id">
+                <xsd:annotation>
+                    <xsd:documentation>ID записи из входящего запроса.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element type="xsd:int" minOccurs="0" maxOccurs="unbounded" name="category">
+                <xsd:annotation>
+                    <xsd:documentation>Список ID категорий спец. транспорта.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element type="xsd:int" minOccurs="0" maxOccurs="unbounded" name="place">
+                <xsd:annotation>
+                    <xsd:documentation>Список ID зон, нахождение в которых разрешено для данного автомобиля.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

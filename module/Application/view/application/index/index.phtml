@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>Пример работы с WebSocket</h1>
+<form action="" name="messages">
+    <div class="row">Имя: <input type="text" name="fname"></div>
+    <div class="row">Текст: <input type="text" name="msg"></div>
+    <div class="row"><input type="submit" value="Поехали"></div>
+</form>
+<div id="status"></div>
+<script>
+    window.onload = function(){
+        var socket = new WebSocket("ws://echo.websocket.org");
+        var status = document.querySelector("#status");
+
+        socket.onopen = function() {
+            status.innerHTML = "cоединение установлено";
+        };
+
+        socket.onclose = function(event) {
+            if (event.wasClean) {
+                status.innerHTML = 'cоединение закрыто';
+            } else {
+                status.innerHTML = 'соединения как-то закрыто';
+            }
+            status.innerHTML += '<br>код: ' + event.code + ' причина: ' + event.reason;
+        };
+
+        socket.onmessage = function(event) {
+            status.innerHTML = "пришли данные " + event.data;
+        };
+
+        socket.onerror = function(event) {
+            status.innerHTML = "ошибка " + event.message;
+        };
+    }
+</script>
+</body>
+</html>
