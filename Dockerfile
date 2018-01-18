@@ -36,13 +36,15 @@ RUN apt-get upgrade -qq
 RUN apt-get install -qqy build-essential libaio1
 RUN apt-get install -qqy nodejs
 RUN apt-get install -qqy nginx
+RUN apt-get install -qqy nginx
 RUN apt-get install -qqy sphinxsearch
 RUN apt-get install -qqy mongodb-org
 RUN apt-get install -qqy mc nano curl wget
 RUN apt-get install -qqy subversion git mercurial
+RUN apt-get install -qqy rabbitmq-server
 
 #START PHP
-	RUN apt-get install -qqy \ 
+	RUN apt-get install -qqy \
 		php5-common \
 		php5-fpm php5-cli\
 		php5-dev php-pear \

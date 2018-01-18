@@ -5,24 +5,24 @@
  * Date: 16.11.17
  * Time: 13:34
  */
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use Ratchet\Server\IoServer;
+use Ratchet\Http\HttpServer;
+use Ratchet\WebSocket\WsServer;
+use Ratchet\Wamp\WampServer;
 
 require '../vendor/autoload.php';
+require '../API/Chat.php';
 
-$connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
+//require '../init.php';
+//require_once '../bootstrap.php';
 
-//Берем канал и декларируем в нем новую очередь, первый аргумент - название
-$channel = $connection->channel();
-$channel->queue_declare('hello', false, false, false, false);
+$server = IoServer::factory(
+    new HttpServer(
+        new WsServer(
+            new Chat()
+        )
+    ),
+    8082
+);
 
-//Создаем новое сообщение
-$msg = new AMQPMessage('Hello World!');
-//Отправляем его в очередь
-$channel->basic_publish($msg, '', 'hello');
-
-echo " [x] Sent 'Hello World!'\n";
-
-//Не забываем закрыть канал и соединение
-$channel->close();
-$connection->close();
+$server->run();

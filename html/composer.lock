@@ -747,16 +747,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.31",
+            "version": "v2.8.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "b59aacf238fadda50d612c9de73b74751872a903"
+                "reference": "d64be24fc1eba62f9daace8a8918f797fc8e87cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b59aacf238fadda50d612c9de73b74751872a903",
-                "reference": "b59aacf238fadda50d612c9de73b74751872a903",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d64be24fc1eba62f9daace8a8918f797fc8e87cc",
+                "reference": "d64be24fc1eba62f9daace8a8918f797fc8e87cc",
                 "shasum": ""
             },
             "require": {
@@ -803,20 +803,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05T15:25:56+00:00"
+            "time": "2018-01-03T07:36:31+00:00"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.8.31",
+            "version": "v2.8.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "984fa8301472a2857b1b2397f7ad1126fb83b229"
+                "reference": "adf79b0558604c04753576235d39bd9577a5f0c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/984fa8301472a2857b1b2397f7ad1126fb83b229",
-                "reference": "984fa8301472a2857b1b2397f7ad1126fb83b229",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/adf79b0558604c04753576235d39bd9577a5f0c8",
+                "reference": "adf79b0558604c04753576235d39bd9577a5f0c8",
                 "shasum": ""
             },
             "require": {
@@ -858,7 +858,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-13T18:11:59+00:00"
+            "time": "2018-01-03T17:12:09+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1035,16 +1035,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v2.8.31",
+            "version": "v2.8.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f"
+                "reference": "e0aada430641d074571dbd4b103a07b523494a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
-                "reference": "67bcd31a2f2fb1bf25cd8f4d4e0e2e2c91cccd5f",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/e0aada430641d074571dbd4b103a07b523494a89",
+                "reference": "e0aada430641d074571dbd4b103a07b523494a89",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1106,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-11-07T14:08:47+00:00"
+            "time": "2018-01-04T14:58:28+00:00"
         }
     ],
     "packages-dev": [],

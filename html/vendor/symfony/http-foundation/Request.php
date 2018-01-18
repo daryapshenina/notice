@@ -734,7 +734,7 @@ class Request
     public function get($key, $default = null, $deep = false)
     {
         if ($deep) {
-            @trigger_error('Using paths to find deeper items in '.__METHOD__.' is deprecated since version 2.8 and will be removed in 3.0. Filter the returned value in your own code instead.', E_USER_DEPRECATED);
+            @trigger_error('Using paths to find deeper items in '.__METHOD__.' is deprecated since Symfony 2.8 and will be removed in 3.0. Filter the returned value in your own code instead.', E_USER_DEPRECATED);
         }
 
         if ($this !== $result = $this->query->get($key, $this, $deep)) {
@@ -1855,6 +1855,7 @@ class Request
             'js' => array('application/javascript', 'application/x-javascript', 'text/javascript'),
             'css' => array('text/css'),
             'json' => array('application/json', 'application/x-json'),
+            'jsonld' => array('application/ld+json'),
             'xml' => array('text/xml', 'application/xml', 'application/x-xml'),
             'rdf' => array('application/rdf+xml'),
             'atom' => array('application/atom+xml'),
