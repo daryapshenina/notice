@@ -1,28 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>89889</title>
-  <link rel="manifest" href="/manifest.json">
+    <meta charset="UTF-8">
+    <title>89889</title>
 </head>
 <body>
-<button class="js-push-button" disabled>
-  Получать уведомления
-</button>
-<p></p>
-<div>
-<button class="pomodoro-button">
-  Начать помодоро
-</button>
-</div>
-
 <form action="" name="messages">
-  <div class="row">Имя: <input type="text" name="fname"></div>
-  <div class="row">Текст: <input type="text" name="msg"></div>
-  <div class="row"><input type="submit" value="Поехали"></div>
+    <div class="row">Имя: <input type="text" name="fname"></div>
+    <div class="row">Текст: <input type="text" name="msg"></div>
+    <div class="row"><input type="submit" value="Поехали"></div>
 </form>
 <div id="status"></div>
+<script src='/push.min.js'></script>
 <script src="/socket-client.js"></script>
-<script src="/push.js"></script>
 </body>
 </html>

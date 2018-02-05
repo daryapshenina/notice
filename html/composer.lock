@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a968dca218fbc5304a9a1e71717f2688",
+    "content-hash": "78f007aa21414e9a420ac21c741ae1fa",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -637,6 +637,51 @@
                 "stream"
             ],
             "time": "2017-01-25T14:44:14+00:00"
+        },
+        {
+            "name": "react/zmq",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/zmq.git",
+                "reference": "b69d97f99f2127e27d130d7fe3b2cec2a63b2c4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/zmq/zipball/b69d97f99f2127e27d130d7fe3b2cec2a63b2c4e",
+                "reference": "b69d97f99f2127e27d130d7fe3b2cec2a63b2c4e",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "~1.0",
+                "ext-zmq": "*",
+                "php": ">=5.3.2",
+                "react/event-loop": "0.3.*"
+            },
+            "require-dev": {
+                "ext-pcntl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "React\\ZMQ": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "ZeroMQ bindings for React.",
+            "keywords": [
+                "zeromq",
+                "zmq"
+            ],
+            "time": "2013-09-18T11:02:06+00:00"
         },
         {
             "name": "smarty/smarty",

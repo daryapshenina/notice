@@ -1,11 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 22.12.17
- * Time: 14:15
- */
-
-require_once 'bootstrap.php';
-$router = new Router();
-$router->exec();
+<script>
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+        //var s = document.createElement('script');
+//s.src = '/script/push.js';
+//s.async = true;
+//document.head.appendChild(s);
+}
+</script>

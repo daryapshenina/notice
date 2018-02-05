@@ -92,6 +92,10 @@ class ComposerStaticInit233dc4b55b3f0bf13d4500fd1053ee58
     public static $prefixesPsr0 = array (
         'R' => 
         array (
+            'React\\ZMQ' => 
+            array (
+                0 => __DIR__ . '/..' . '/react/zmq/src',
+            ),
             'React\\Promise' => 
             array (
                 0 => __DIR__ . '/..' . '/react/promise/src',

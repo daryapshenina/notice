@@ -28,8 +28,10 @@ RUN add-apt-repository -y ppa:chris-lea/node.js
 RUN add-apt-repository -y ppa:nginx/stable
 
 # Для установки mongo
+
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 RUN echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu precise/mongodb-org/3.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
 
 RUN apt-get update -qq
 RUN apt-get upgrade -qq
@@ -42,6 +44,7 @@ RUN apt-get install -qqy mongodb-org
 RUN apt-get install -qqy mc nano curl wget
 RUN apt-get install -qqy subversion git mercurial
 RUN apt-get install -qqy rabbitmq-server
+
 
 #START PHP
 	RUN apt-get install -qqy \
@@ -100,6 +103,12 @@ xdebug.remote_enable=1' >> /etc/php5/conf.d/20-xdebug.ini
 		'extension=mongo.so' >> /etc/php5/conf.d/mongo.ini
 #END PHP
 
+
+RUN mkdir -p /var/commands/mongo
+RUN mkdir -p /data/db
+
+COPY bundle/mongo/*.js /var/commands/mongo/
+
 RUN cp /tmp/mongod.conf /etc/mongod.conf
 RUN cp /tmp/*.ora /usr/lib/oracle/11.2/client64/bin/
 RUN cp /tmp/*.ini /usr/local/etc
@@ -157,6 +166,7 @@ COPY bundle/sqlnet.ora      /usr/lib/oracle/11.2/client64/network
 COPY bundle/listener.ora    /usr/lib/oracle/11.2/client64/network
 COPY bundle/tnsnames.ora    /usr/lib/oracle/11.2/client64/network/admin
 
+
 #Устанавливаем PostgreSQL (from sotnikovds <sotnikovds@altarix.ru>)
 
 ARG pgversion=9.6
@@ -183,11 +193,13 @@ RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/$pgversion/main/pg
 # And add ``listen_addresses`` to ``/etc/postgresql/9.3/main/postgresql.conf``
 RUN echo "listen_addresses='*'" >> /etc/postgresql/$pgversion/main/postgresql.conf
 
+
 ADD wwwdev.sh /usr/bin/wwwdev
 RUN chmod +x /usr/bin/wwwdev
 
 EXPOSE 54321
 
+EXPOSE 27017
 VOLUME /var/www
 EXPOSE 80 22 9001
 

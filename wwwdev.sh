@@ -5,10 +5,10 @@ start() {
 	service php5-fpm start
 	chmod 0666 /var/run/php5-fpm.sock
 	nginx
-	rabbitmq-server
+	rabbitmq-server start
 	service td-agent start
-	php bin/chat-server.php
-	mongod --fork --dbpath /var/lib/mongodb/ --smallfiles --logpath /var/log/mongodb.log --logappend
+	php /var/www/html/bin/chat-server.php
+#	mongod --fork --dbpath /var/lib/mongodb/ --smallfiles --logpath /var/log/mongodb.log --logappend
 	start-stop-daemon --start --pidfile /var/run/sshd.pid --exec /usr/sbin/sshd -- -p 22
 	echo "READY"
 
@@ -18,12 +18,28 @@ start() {
 	indexer --all
 	searchd
 
+
+
+	mongod --fork --logpath /var/logs/mongo/mongodb.log --smallfiles
+mongo admin /var/commands/mongo/create-user-mongouser.js
+mongo log /var/commands/mongo/create-user-fluented.js
+
+kill $(pgrep mongo)
+sleep 5
+mongod --logpath /var/logs/mongo/mongodb.log --smallfiles
+mongod
+
+
+
+
 	service postgresql start
 
 	sudo -u postgres psql -c "CREATE USER notice WITH SUPERUSER PASSWORD 'iddqd225';"
 	sudo -u postgres psql -c "CREATE DATABASE notice;"
 
 	export PGPASSWORD=iddqd225
+
+
 	
 
 	echo "Import from docker-init.sql ..."

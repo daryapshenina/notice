@@ -658,6 +658,53 @@
         ]
     },
     {
+        "name": "react/zmq",
+        "version": "v0.2.0",
+        "version_normalized": "0.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reactphp/zmq.git",
+            "reference": "b69d97f99f2127e27d130d7fe3b2cec2a63b2c4e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/reactphp/zmq/zipball/b69d97f99f2127e27d130d7fe3b2cec2a63b2c4e",
+            "reference": "b69d97f99f2127e27d130d7fe3b2cec2a63b2c4e",
+            "shasum": ""
+        },
+        "require": {
+            "evenement/evenement": "~1.0",
+            "ext-zmq": "*",
+            "php": ">=5.3.2",
+            "react/event-loop": "0.3.*"
+        },
+        "require-dev": {
+            "ext-pcntl": "*"
+        },
+        "time": "2013-09-18T11:02:06+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "React\\ZMQ": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "ZeroMQ bindings for React.",
+        "keywords": [
+            "zeromq",
+            "zmq"
+        ]
+    },
+    {
         "name": "smarty/smarty",
         "version": "v3.1.31",
         "version_normalized": "3.1.31.0",

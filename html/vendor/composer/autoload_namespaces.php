@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'React\\ZMQ' => array($vendorDir . '/react/zmq/src'),
     'React\\Promise' => array($vendorDir . '/react/promise/src'),
     'React\\EventLoop' => array($vendorDir . '/react/event-loop'),
     'MyApp' => array($baseDir . '/src'),
