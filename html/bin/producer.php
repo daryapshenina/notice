@@ -2,8 +2,8 @@
 
 //Файл с исходным кодом лежит в /application/hello-world, поэтому нужно спуститься на два уровня
 //прежде, чем подключить vendor
-require '../vendor/autoload.php';
-
+//require '../vendor/autoload.php';
+require '/var/www/html/vendor/autoload.php';
 //Необходимые классы
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;

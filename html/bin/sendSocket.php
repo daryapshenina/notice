@@ -45,10 +45,6 @@ class WebsocketClient {
         fwrite($this->_Socket, $header) or die('Error: ' . $errno . ':' . $errstr);
         $response = fread($this->_Socket, 2000);
 
-        /**
-         * @todo: check response here. Currently not implemented cause "2 key handshake" is already deprecated.
-         * See: http://en.wikipedia.org/wiki/WebSocket#WebSocket_Protocol_Handshake
-         */
         return true;
     }
 
@@ -77,8 +73,4 @@ class WebsocketClient {
     }
 
 }
-
-$WebSocketClient = new WebsocketClient('localhost', 8082);
-echo $WebSocketClient->sendData("MyUserNameFromPHP");
-unset($WebSocketClient);
 ?>
