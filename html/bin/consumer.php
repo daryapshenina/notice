@@ -1,7 +1,7 @@
 <?php
 //Подключаем нужный класс]]
 
-require '/var/www/html/vendor/autoload.php';
+require '../vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 require 'sendSocket.php';
 
@@ -24,8 +24,14 @@ $callback = function($msg) {
 
 //Уходим слушать сообщения из очереди в бесконечный цикл
 $channel->basic_consume('hello', '', false, true, false, false, $callback);
-while(count($channel->callbacks)) {
+/*while(count($channel->callbacks)) {
     $channel->wait();
+}*/
+while (true) {
+    if ($envelope = $queue->get(AMQP_AUTOACK)) {
+        $message = json_decode($envelope->getBody());
+        print($message);
+    }
 }
 
 //Не забываем закрыть соединение и канал

@@ -1,12 +1,11 @@
-window.onload = function(){
+window.onload = function() {
     var socket = new WebSocket("ws://localhost:8082");
     var status = document.querySelector("#status");
-    socket.onopen = function() {
-
+    socket.onopen = function () {
         status.innerHTML = "cоединение установлено<br>";
     };
 
-    socket.onclose = function(event) {
+    socket.onclose = function (event) {
         if (event.wasClean) {
             status.innerHTML = 'cоединение закрыто';
         } else {
@@ -15,8 +14,8 @@ window.onload = function(){
         status.innerHTML += '<br>код: ' + event.code + ' причина: ' + event.reason;
     };
 
-    socket.onmessage = function(event) {
-        sendNotification('Верните Линуса!', {
+    socket.onmessage = function (event) {
+        sendNotification('Уведомление', {
             body: "пришли данные " + event.data,
             icon: 'icon.jpg',
             dir: 'auto'
@@ -24,16 +23,25 @@ window.onload = function(){
 
     };
 
-    socket.onerror = function(event) {
+    socket.onerror = function (event) {
         status.innerHTML = "ошибка " + event.message;
     };
-    document.forms["messages"].onsubmit = function(){
+    document.forms["messages"].onsubmit = function () {
         var message = {
-            name:this.fname.value,
-            msg: this.msg.value
+            name: this.fname.value,
+            msg: this.msg.value,
+            type: 'client'
         }
 
-        socket.send(JSON.stringify(message));
+        fetch('API/test.php', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            body: 'type=start'
+        })
+
+        //socket.send(JSON.stringify(message));
         return false;
     }
 
@@ -70,7 +78,5 @@ function sendNotification(title, options) {
             }
         });
     } else {
-// Пользователь ранее отклонил наш запрос на показ уведомлений
-// В этом месте мы можем, но не будем его беспокоить. Уважайте решения своих пользователей.
     }
 }
